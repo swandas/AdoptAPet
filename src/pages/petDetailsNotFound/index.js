@@ -1,14 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-// import useHistory here.
 
 const PetDetailsNotFound = () => {
+const navigate = useNavigate();
 
-  // get the history object from useHistory()
 
-  const goBack = () => {
-    // Go back!
-  }
   
   return (
     <main className="page">
@@ -19,7 +16,7 @@ const PetDetailsNotFound = () => {
         alt=""
       />
       <div className="actions-container">
-        <button className="button" onClick={goBack}>
+        <button className="button" onClick={() => navigate(-1)}>
           Go Back
         </button>
       </div>

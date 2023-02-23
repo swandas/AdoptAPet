@@ -4,11 +4,25 @@ import PetDetailsPage from './pages/detail';
 import PetDetailsNotFound from './pages/petDetailsNotFound';
 import Navigation from './components/navigation';
 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+
+
 function App() {
   return (
-    <div>
-      <Navigation />
-      <HomePage />
+    <div className='mainDiv'>
+      <Router>
+        <Routes>
+        <Route path="/:type?" element={[<Navigation />, <HomePage /> ]} /> 
+        <Route path='/:type/:id?' element={[<Navigation />, <PetDetailsPage />]} />
+        <Route path='/petDetailsNotFound' element={[<Navigation />,<PetDetailsNotFound />]} />
+        <Route path='/search' element={[<Navigation />,<SearchPage />]} />
+        <Route path="/" element={[<Navigation />, <HomePage /> ]} />  
+        <Route path="/navigation" element={<Navigation />} />
+       
+        
+       </Routes>
+      </Router>
     </div>
   );
 }
